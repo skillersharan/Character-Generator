@@ -13,6 +13,7 @@ This Python script generates characters by combining traits (images) from differ
 
 The script expects the following structure:
 
+```bash
 input_traits/
 ├── 1_basebody/
 │ ├── body1.png
@@ -22,6 +23,7 @@ input_traits/
 │ ├── hair1.png
 │ └── ...
 └── ...
+```
 
 2. Run the script using the following command:
 
@@ -30,6 +32,7 @@ python character_generator.py
 ```
 
 3. The script will create a timestamped folder inside "output_characters" and save character images and trait information JSON files inside it. The generated structure will look like this:
+```bash
 output_characters/
 ├── 20220101_120000/
     ├── character_1.png
@@ -37,7 +40,7 @@ output_characters/
     ├── character_2.png
     ├── character_2_traits.json
     └── ...
-
+```
 
 ## Configuration
 You can customize the input folder, output parent folder, and supported image formats by modifying the script. 
