@@ -25,6 +25,13 @@ input_traits/
 └── ...
 ```
 
+Example: 
+
+![image](https://github.com/skillersharan/Character-Generator/assets/7269794/2edbc6c6-c510-4a84-a218-7a0f389cdda6)
+
+![image](https://github.com/skillersharan/Character-Generator/assets/7269794/df9b1aa9-caf4-4a14-9488-48331727c353)
+
+
 2. Run the script using the following command:
 
 ```bash
@@ -40,6 +47,18 @@ output_characters/
     ├── character_2.png
     ├── character_2_traits.json
     └── ...
+```
+![image](https://github.com/skillersharan/Character-Generator/assets/7269794/6c1574e1-b462-47ad-852e-04970d8d7789)
+
+Character metadata generated
+```JSON
+{
+  "character_name": "character_1",
+  "face": "Brown",
+  "mouth": "Sad",
+  "eyes": "Eyes",
+  "hairstyle": "Afro"
+}
 ```
 
 ## Configuration
