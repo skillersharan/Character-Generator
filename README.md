@@ -5,7 +5,7 @@ This Python script generates characters by combining traits (images) from differ
 ## Prerequisites
 
 - Python 3.x
-- Pillow (PIL) library (`pip install pillow`)
+- Install requirements (`pip install -r requirements.txt`)
 
 ## Usage
 

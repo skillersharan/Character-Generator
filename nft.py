@@ -2,24 +2,32 @@ import os
 import json
 from PIL import Image, ImageDraw
 from datetime import datetime
+from tqdm import tqdm  # Import tqdm for progress bar
 
 def generate_characters(input_folder, output_parent_folder, supported_formats):
-    # Generate a timestamped folder for output
-    timestamp_folder = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_folder = os.path.join(output_parent_folder, timestamp_folder)
-    os.makedirs(output_folder, exist_ok=True)
-
     # Collect trait folders
     trait_folders = [f.path for f in sorted(os.scandir(input_folder), key=lambda x: int(x.name.split("_")[0])) if f.is_dir()]
 
     # Initialize trait combinations
     trait_combinations = [[]]
 
+    # Count the total number of traits to be generated
+    total_traits = 0
+    for trait_folder in trait_folders:
+        total_traits += len([file for file in os.listdir(trait_folder) if any(file.lower().endswith(format) for format in supported_formats)])
+
+    # Generate a timestamped folder for output
+    timestamp_folder = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_folder = os.path.join(output_parent_folder, timestamp_folder)
+    os.makedirs(output_folder, exist_ok=True)
+
+    # Set up tqdm progress bar
+    print("Total traits : " + str(total_traits))
+
     # Iterate over trait folders
     for trait_folder in trait_folders:
         trait_images = []
         trait_name = os.path.basename(trait_folder)
-        
         # Collect images for each trait
         for file in os.listdir(trait_folder):
             if any(file.lower().endswith(format) for format in supported_formats):
@@ -29,6 +37,10 @@ def generate_characters(input_folder, output_parent_folder, supported_formats):
 
         # Update trait combinations with new trait images
         trait_combinations = [combo + [(trait_name, img)] for combo in trait_combinations for trait_name, img in trait_images]
+
+
+    # Set up tqdm progress bar for character generation
+    progress_bar = tqdm(total=len(trait_combinations), desc="Generating Characters", unit="character")
 
     # Generate characters based on trait combinations
     for i, combination in enumerate(trait_combinations):
@@ -51,6 +63,14 @@ def generate_characters(input_folder, output_parent_folder, supported_formats):
         json_path = os.path.join(output_folder, f"{character_name}_traits.json")
         with open(json_path, 'w') as json_file:
             json.dump(json_data, json_file, indent=2)
+
+        # Increment progress bar
+        progress_bar.update(1)
+
+    # Close the tqdm progress bar
+    progress_bar.close()
+
+    print("Completed !")
 
 if __name__ == "__main__":
     # Config variables
