@@ -26,10 +26,14 @@ input_traits/
 ```
 
 Example: 
+Input traits :
 
-![image](https://github.com/skillersharan/Character-Generator/assets/7269794/2edbc6c6-c510-4a84-a218-7a0f389cdda6)
+![image](https://github.com/skillersharan/Character-Generator/assets/7269794/4bf53288-6dc3-4abb-91e2-8c99179d70c3)
 
-![image](https://github.com/skillersharan/Character-Generator/assets/7269794/df9b1aa9-caf4-4a14-9488-48331727c353)
+Example trait
+
+![image](https://github.com/skillersharan/Character-Generator/assets/7269794/57ecb164-de3a-4967-8336-368cecafebc3)
+
 
 
 2. Run the script using the following command:
@@ -48,16 +52,19 @@ output_characters/
     ├── character_2_traits.json
     └── ...
 ```
-![image](https://github.com/skillersharan/Character-Generator/assets/7269794/6c1574e1-b462-47ad-852e-04970d8d7789)
+Example output : 
+![image](https://github.com/skillersharan/Character-Generator/assets/7269794/8cc79ac5-d9a3-4930-bb6f-e5ac221cae87)
 
 Character metadata generated
 ```JSON
 {
   "character_name": "character_1",
-  "face": "Brown",
-  "mouth": "Sad",
-  "eyes": "Eyes",
-  "hairstyle": "Afro"
+  "Bg": "Blue",
+  "Body": "outline",
+  "Sweater": "Sweater Blue",
+  "Hair": "Braid",
+  "Eyes": "Annoyed",
+  "Earrings": "Berry"
 }
 ```
 
